@@ -92,9 +92,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void flash() {
-        if (!emergency) {
-            return;
-        }
         while(emergency) {
             try {
                 if (isLightOn) {
