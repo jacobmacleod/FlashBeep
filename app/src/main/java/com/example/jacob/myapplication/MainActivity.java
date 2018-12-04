@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             cameraManager.setTorchMode(cameraId, false);
             isLightOn = false;
-            Thread.sleep(200);
+            Thread.sleep(250);
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             cameraManager.setTorchMode(cameraId, true);
             ToneGenerator toneGenerator = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
             isLightOn = true;
-            toneGenerator.startTone(ToneGenerator.TONE_CDMA_PIP,200);
+            toneGenerator.startTone(ToneGenerator.TONE_CDMA_PIP,250);
         }
         catch (Exception e) {
             e.printStackTrace();
