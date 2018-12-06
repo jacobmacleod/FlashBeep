@@ -21,7 +21,7 @@ import android.widget.Switch;
 public class MainActivity extends AppCompatActivity {
 
     private static final int CAMERA_REQUEST = 50;
-    private boolean isLightOn;
+    private boolean isLightOn; // status of light
     private CameraManager cameraManager;
     private String cameraId;
     private boolean emergency;
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         isLightOn = false;
+        // check if user has flash light on their device
         boolean isFlashAvailable = getApplicationContext().getPackageManager()
                 .hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
         if (!isFlashAvailable) {
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         catch (CameraAccessException e) {
             e.printStackTrace();
         }
+        // start and stop flashing and beeping by button press
         btn = (Button) findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    // while in emergency mode, flash light at 2 Hz.
     public void flash() {
         while(emergency) {
             try {
